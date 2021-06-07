@@ -1,4 +1,5 @@
 import {min, max} from "d3-array";
+import { isOdd } from "./util";
 
 // Main render method
 export function renderHexJSON (hexjson, width, height) {
@@ -64,12 +65,12 @@ function getX (hex, layout, hexWidth, hexRadius) {
 
 	switch (layout) {
 		case "odd-r":
-			xOffset = (hex.rc % 2 === 1) ? hexWidth : (hexWidth / 2);
+			xOffset = isOdd(hex.r) ? hexWidth : (hexWidth / 2);
 			x = (hex.qc * hexWidth) + xOffset;
 			break;
 
 		case "even-r":
-			xOffset = (hex.rc % 2 === 0) ? hexWidth : (hexWidth / 2);
+			xOffset = !isOdd(hex.r) ? hexWidth : (hexWidth / 2);
 			x = (hex.qc * hexWidth) + xOffset;
 			break;
 

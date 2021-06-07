@@ -112,7 +112,7 @@ tape("hexes have the expected x and y for odd-r layout", function (test) {
 tape("hexes have the expected x and y for odd-r layout with an odd number of rows", function (test) {
 	exampleDataB.layout = "odd-r";
 	var hexes = h.renderHexJSON(exampleDataB, 500, 500);
-	test.equal(hexes[0].x, 55.55555555555555);
+	test.equal(hexes[0].x, 111.1111111111111);
 	test.equal(hexes[0].y, 256.6001196398337);
 	test.end();
 });
@@ -128,7 +128,7 @@ tape("hexes have the expected x and y for even-r layout", function (test) {
 tape("hexes have the expected x and y for even-r layout with an odd number of rows", function (test) {
 	exampleDataB.layout = "even-r";
 	var hexes = h.renderHexJSON(exampleDataB, 500, 500);
-	test.equal(hexes[0].x, 111.1111111111111);
+	test.equal(hexes[0].x, 55.55555555555555);
 	test.equal(hexes[0].y, 256.6001196398337);
 	test.end();
 });
@@ -247,12 +247,12 @@ tape("grid hexjson has the same number of rows and columns as source hexjson", f
 
 tape("boundaries should come up with twelve separate boundary segments", function (test) {
 	var lines = h.getBoundarySegmentsForHexJSON(exampleDataD, 500, 500, "prov");
-	test.equal(lines.length, 12);
+	test.equal(lines.length, 13);
 	test.end();
 });
 
 tape("boundaries should come up with sixty boundary points", function (test) {
 	var points = h.getBoundaryDotsForHexJSON(exampleDataD, 500, 500, "prov");
-	test.equal(points.length, 60);
+	test.equal(points.length, 65);
 	test.end();
 });
